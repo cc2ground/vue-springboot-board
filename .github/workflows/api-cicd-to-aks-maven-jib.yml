@@ -27,7 +27,7 @@ env:
   SECRET: 'secret-for-acr'
   AKS_CLUSTER: 'aks-cluster-ghworkshop'
   NAMESPACE: 'boardapi'
-  APP_NAME: 'app'
+  APP_NAME: 'board-app'
 
 jobs:
   build-and-push-to-acr:
@@ -55,7 +55,7 @@ jobs:
         mvn compile jib:build
         
         echo 'Complete Build and Push to ACR'
-      
+     
   deploy-to-aks:
     needs: build-and-push-to-acr
     runs-on: ubuntu-latest

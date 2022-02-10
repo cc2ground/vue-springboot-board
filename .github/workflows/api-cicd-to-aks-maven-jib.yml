@@ -61,10 +61,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Azure Login
-      uses: Azure/login@v1.1
-      with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
+#    - name: Azure Login
+#      uses: Azure/login@v1.1
+#      with:
+#        creds: ${{secrets.AZURE_CREDENTIALS}}
 
     # Set the target Azure Kubernetes Service (AKS) cluster. 
     - uses: azure/aks-set-context@v1

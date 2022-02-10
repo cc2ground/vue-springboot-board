@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "aksclusterghworkshop"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "ghworkshop"
+  template:
+    metadata:
+      labels:
+        app: "ghworkshop"
+    spec:
+      containers:
+        - name: "aksclusterghworkshop"
+          image: "aksclusterghworkshopacr.azurecr.io/aksclusterghworkshop3b58"
+          ports:
+          - containerPort: 8080

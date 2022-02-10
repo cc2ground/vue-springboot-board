@@ -1,0 +1,57 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Java Build with Maven & Deploy to AKS
+
+on:
+#  push:
+#    paths:
+#      - 'api/**'
+#      - '!api/**.md'
+#    branches: [ main ]
+  pull_request:
+    paths:
+      - 'api/**'
+      - '!api/**.md'
+    branches: [ main ]
+    
+env:
+  # app env
+  WORKING_DIR: './board-api'
+  BOARD_API_PORT: '8090'
+  
+  # azure env
+  AZURE_RG: 'rg-ghworkshopbase'
+  AZURE_REGION: 'koreacentral'
+  ACR_NAME: 'acrghworkshop'
+  AKS_CLUSTER: 'aks-ghworkshop'
+
+jobs:
+  buildandpushtoacr:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Azure Login
+      uses: Azure/login@v1.1
+      with:
+        # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
+        creds: ${{secret.AZURE_CREDENTIALS}}
+
+    - name: Azure Container Registry Login
+      uses: Azure/docker-login@v1
+      with:
+        login-server: ${{ env.ACR_NAME }}.azurecr.io
+        username: ${{ secrets.ACR_USERNAME }} 
+        password: ${{ secrets.ACR_PASSWORD }} 
+
+    - run: |
+        echo 'Start Build and Push to ACR'
+        
+        cd board-api
+        mvn compile jib:build
+        
+        echo 'Complete Build and Push to ACR'
+      
+      

@@ -91,8 +91,8 @@ jobs:
     - uses: azure/k8s-deploy@v1
       with:
         manifests: |
-          ${{ github.workspace }}/manifests/deployment.yaml
-          ${{ github.workspace }}/manifests/service.yaml
+          ${{ github.workspace }}/k8s_manifests/deployment.yaml
+          ${{ github.workspace }}/k8s_manifests/service.yaml
         images: |
           ${{ env.ACR_NAME }}.azurecr.io/${{ env.APP_NAME }}:latest
         imagepullsecrets: |

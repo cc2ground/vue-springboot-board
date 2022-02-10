@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>me.jsk</groupId>
-	<artifactId>app</artifactId>
+	<artifactId>board-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>app-board</name>
 	<description>App Board for Spring Boot</description>

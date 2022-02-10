@@ -4,11 +4,11 @@
 name: Java Build with Maven & Deploy to AKS
 
 on:
-#  push:
-#    paths:
-#      - 'api/**'
-#      - '!api/**.md'
-#    branches: [ main ]
+  push:
+    paths:
+      - 'api/**'
+      - '!api/**.md'
+    branches: [ main ]
   pull_request:
     paths:
       - 'api/**'

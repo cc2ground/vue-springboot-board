@@ -13,7 +13,7 @@ spec:
         app: "ghworkshop"
     spec:
       containers:
-        - name: "aksclusterghworkshop"
-          image: "aksclusterghworkshopacr.azurecr.io/aksclusterghworkshop3b58"
+        - name: "board-api"
+          image: "acrghworkshop.azurecr.io/board-app"
           ports:
-          - containerPort: 8080
+          - containerPort: 8090

@@ -38,11 +38,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    # - name: Azure Login
-    #   uses: Azure/login@v1.1
-    #   with:
-    #     creds: ${{secrets.AZURE_CREDENTIALS}}
-
     - name: Azure Container Registry Login
       uses: Azure/docker-login@v1
       with:
@@ -65,11 +60,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    # - name: Azure Login
-    #   uses: Azure/login@v1.1
-    #   with:
-    #     creds: ${{secrets.AZURE_CREDENTIALS}}
-
     # Set the target Azure Kubernetes Service (AKS) cluster. 
     - uses: azure/aks-set-context@v1
       with:

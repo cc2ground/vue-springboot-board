@@ -52,7 +52,7 @@ jobs:
     - run: |
         echo 'Start Build and Push to ACR'
         
-        cd env.WORKING_DIR
+        cd borad-api
         mvn compile jib:build -Djib.to.tags=${{ github.sha }}
         
         echo 'Complete Build and Push to ACR'

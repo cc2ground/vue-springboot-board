@@ -1,33 +1,34 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+# 2022.02 Cloocus 전상현 작성
+# Maven으로 구성된 Java Spring Boot 프로텍트 빌드
+# jib를 이용해 빌드 및 도커라이징 하고 ACR에 push
+# ACR에 push된 이미지를 이용해 Azure Kubernetes Service에 어플리케이션 배포
 
 name: Java Build with Maven & Deploy to AKS
 
 on:
   push:
-#    paths:
-#      - 'api/**'
-#      - '!api/**.md'
-    branches: [ main ]
-  pull_request:
     paths:
-      - 'api/**'
-      - '!api/**.md'
+     - 'api/**'
+     - '!api/**.md'
+     - '!.github/**'
     branches: [ main ]
+  # pull_request:
+  #   paths:
+  #     - 'api/**'
+  #     - '!api/**.md'
+  #   branches: [ main ]
     
 env:
   # app env
-  WORKING_DIR: './board-api'
-  BOARD_API_PORT: '8090'
+  WORKING_DIR: 'board-api'
   
   # azure env
   AZURE_RG: 'rg-ghworkshop-base'
-  AZURE_REGION: 'koreacentral'
   ACR_NAME: 'acrghworkshop'
   SECRET: 'secret-for-acr'
-  AKS_CLUSTER: 'aks-cluster-ghworkshop'
+  AKS_CLUSTER: 'aks-cluster-ghworkshop01'
   NAMESPACE: 'boardapi'
-  APP_NAME: 'board-app'
+  APP_NAME: 'board-api'
 
 jobs:
   build-and-push-to-acr:
@@ -36,10 +37,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Azure Login
-      uses: Azure/login@v1.1
-      with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
+    # - name: Azure Login
+    #   uses: Azure/login@v1.1
+    #   with:
+    #     creds: ${{secrets.AZURE_CREDENTIALS}}
 
     - name: Azure Container Registry Login
       uses: Azure/docker-login@v1
@@ -51,8 +52,8 @@ jobs:
     - run: |
         echo 'Start Build and Push to ACR'
         
-        cd board-api
-        mvn compile jib:build
+        cd env.WORKING_DIR
+        mvn compile jib:build -Djib.to.tags=${{ github.sha }}
         
         echo 'Complete Build and Push to ACR'
      
@@ -63,10 +64,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Azure Login
-      uses: Azure/login@v1.1
-      with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
+    # - name: Azure Login
+    #   uses: Azure/login@v1.1
+    #   with:
+    #     creds: ${{secrets.AZURE_CREDENTIALS}}
 
     # Set the target Azure Kubernetes Service (AKS) cluster. 
     - uses: azure/aks-set-context@v1
@@ -96,7 +97,7 @@ jobs:
           k8s_manifests/deployment.yml
           k8s_manifests/service.yml
         images: |
-          ${{ env.ACR_NAME }}.azurecr.io/${{ env.APP_NAME }}:latest
+          ${{ env.ACR_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         imagepullsecrets: |
           ${{ env.SECRET }}
         namespace: ${{ env.NAMESPACE }}

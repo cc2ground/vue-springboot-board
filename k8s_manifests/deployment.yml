@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: "board-api"
-          image: "acrghworkshop.azurecr.io/board-app"
+          image: "acrghworkshop.azurecr.io/board-api"
           ports:
           - containerPort: 8090

@@ -8,8 +8,8 @@ name: Java Build with Maven & Deploy to AKS
 on:
   push:
     paths:
-     - 'api/**'
-     - '!api/**.md'
+     - 'board-api/**'
+     - '!board-api/**.md'
      - '!.github/**'
     branches: [ main ]
   # pull_request:

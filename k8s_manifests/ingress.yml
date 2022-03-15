@@ -6,7 +6,7 @@ metadata:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-  - host: ghworkshop.585f9e70f6c34ffcaf1f.koreacentral.aksapp.io
+  - host: ghworkshop.7e0cd4fae80246bb9979.koreacentral.aksapp.io
     http:
       paths:
       - path: /

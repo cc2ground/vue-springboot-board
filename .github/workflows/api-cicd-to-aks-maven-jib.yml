@@ -85,8 +85,10 @@ jobs:
     - uses: azure/k8s-deploy@v1
       with:
         manifests: |
+          k8s_manifests/cluster-issuer.yml
           k8s_manifests/deployment.yml
           k8s_manifests/service.yml
+          k8s_manifests/ingress.yml
         images: |
           ${{ env.ACR_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         imagepullsecrets: |

@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ghworkshop
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: ghworkshop.aks-cluster-ghworkshop01-dns-606985ea.hcp.koreacentral.azmk8s.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: ghworkshop
+            port: 
+              number: 8090

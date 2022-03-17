@@ -33,5 +33,3 @@ new Vue({
 	vuetify,
 	render: h => h(App),
 }).$mount('#app')
-
-// test 01

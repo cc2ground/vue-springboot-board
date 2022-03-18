@@ -1,14 +1,15 @@
 <template>
 	<div>
 		<v-container>
-			<v-card class="mx-auto" max-width="600" tile>
+			<v-card class="mx-auto" max-width="500" tile>
 				<v-card-title>
-					<h1>Welcome Cloocus Workshop</h1>
+					Vue, Spring Boot Board
 				</v-card-title>
 				<v-card-text>
 					<h2>Introduction</h2>
 					<br />
-					Vue / Java Spring Boot / MySQL 3-tier Sample Project
+					Basic bulletin board function and comment function provide additional
+					weather and time.
 					<br />
 					<br />
 					<h2>Development Environment</h2>
@@ -37,6 +38,22 @@
 						<v-col class="pa-1">
 							<v-list-item color="rgba(0, 0, 0, .4)" dark class="pa-1">
 								<v-list-item-content>
+									<!--v-list-item-title class="title">
+										<a href="mailto:sun7190@naver.com">
+											<v-icon>mdi-email</v-icon>
+										</~a>
+										<a href="https://dev-jsk.tistory.com" target="_blank">
+											<v-icon>mdi-blogger</v-icon>
+										</a>
+										<a
+											href="https://github.com/jinseogood/vue-springboot-board"
+											target="_blank"
+										>
+											<v-icon>mdi-github</v-icon>
+										</a>
+										<br />
+										Jinseo Kim
+									</v-list-item-title-->
 									<v-list-item-subtitle>Cloocus.com</v-list-item-subtitle>
 								</v-list-item-content>
 							</v-list-item>

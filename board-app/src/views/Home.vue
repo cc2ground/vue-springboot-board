@@ -3,7 +3,7 @@
 		<v-container>
 			<v-card class="mx-auto" max-width="500" tile>
 				<v-card-title>
-					Welcome to Cloocus Workshop!
+					Vue, Spring Boot Board
 				</v-card-title>
 				<v-card-text>
 					<h2>Introduction</h2>

@@ -3,7 +3,7 @@
 		<v-container>
 			<v-card class="mx-auto" max-width="500" tile>
 				<v-card-title>
-					Vue, Spring Boot Board
+					Welcome to Cloocus Workshop!
 				</v-card-title>
 				<v-card-text>
 					<h2>Introduction</h2>
@@ -38,22 +38,6 @@
 						<v-col class="pa-1">
 							<v-list-item color="rgba(0, 0, 0, .4)" dark class="pa-1">
 								<v-list-item-content>
-									<!--v-list-item-title class="title">
-										<a href="mailto:sun7190@naver.com">
-											<v-icon>mdi-email</v-icon>
-										</~a>
-										<a href="https://dev-jsk.tistory.com" target="_blank">
-											<v-icon>mdi-blogger</v-icon>
-										</a>
-										<a
-											href="https://github.com/jinseogood/vue-springboot-board"
-											target="_blank"
-										>
-											<v-icon>mdi-github</v-icon>
-										</a>
-										<br />
-										Jinseo Kim
-									</v-list-item-title-->
 									<v-list-item-subtitle>Cloocus.com</v-list-item-subtitle>
 								</v-list-item-content>
 							</v-list-item>

@@ -24,10 +24,10 @@ env:
   WORKING_DIR: 'board-api'
   
   # azure env
-  AZURE_RG: 'rg-ghworkshop-base'
-  ACR_NAME: 'acrghworkshop'
+  AZURE_RG: 'rg-appinno-aks-dev'
+  ACR_NAME: 'acrAppinno'
   SECRET: 'secret-for-acr'
-  AKS_CLUSTER: 'aks-cluster-ghworkshop01'
+  AKS_CLUSTER: 'aks-appinno-dev'
   NAMESPACE: 'boardapi'
   APP_NAME: 'board-api'
 

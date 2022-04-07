@@ -25,7 +25,7 @@ env:
   
   # azure env
   AZURE_RG: 'rg-appinno-aks-dev'
-  ACR_NAME: 'acrAppinno'
+  ACR_NAME: 'acrappinno'
   SECRET: 'secret-for-acr'
   AKS_CLUSTER: 'aks-appinno-dev'
   NAMESPACE: 'boardapi'

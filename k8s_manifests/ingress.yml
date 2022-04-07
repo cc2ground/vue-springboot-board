@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - ghworkshopdnslabel.koreacentral.cloudapp.azure.com
+    - appinnodnslabel.koreacentral.cloudapp.azure.com
     secretName: tls-secret
   rules:
-  - host: ghworkshopdnslabel.koreacentral.cloudapp.azure.com
+  - host: appinnodnslabel.koreacentral.cloudapp.azure.com
     http:
       paths:
       - path: /(.*)

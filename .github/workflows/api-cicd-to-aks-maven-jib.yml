@@ -8,7 +8,7 @@ name: Java Build with Maven & Deploy to AKS
 on:
   push:
     paths:
-     - 'board-api/**'
+    # - 'board-api/**'
      - 'k8s_manifests/**'
      - '!board-api/**.md'
     # - '!.github/**'

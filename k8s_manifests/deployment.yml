@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: "ghworkshop"
+  name: "board-api-deployment"
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: "ghworkshop"
+      app: "appinno"
   template:
     metadata:
       labels:
-        app: "ghworkshop"
+        app: "appinno"
     spec:
       containers:
         - name: "board-api"
-          image: "acrghworkshop.azurecr.io/board-api"
+          image: "acrappinno.azurecr.io/board-api"
           ports:
           - containerPort: 80

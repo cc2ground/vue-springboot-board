@@ -9,7 +9,7 @@ on:
   push:
     paths:
     # - 'board-api/**'
-     - 'k8s_manifests/**'
+    # - 'k8s_manifests/**'
      - '!board-api/**.md'
     # - '!.github/**'
     branches: [ main ]

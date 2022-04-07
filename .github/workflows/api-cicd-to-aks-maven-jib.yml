@@ -11,7 +11,7 @@ on:
      - 'board-api/**'
      - 'k8s_manifests/**'
      - '!board-api/**.md'
-     - '!.github/**'
+    # - '!.github/**'
     branches: [ main ]
   # pull_request:
   #   paths:

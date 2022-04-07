@@ -15,7 +15,7 @@
 	<description>App Board for Spring Boot</description>
 
 	<properties>
-		<docker.image.prefix>acrghworkshop.azurecr.io</docker.image.prefix>
+		<docker.image.prefix>acrappinno.azurecr.io</docker.image.prefix>
    		<jib-maven-plugin.version>2.5.2</jib-maven-plugin.version>
 		<java.version>8</java.version>
 	</properties>

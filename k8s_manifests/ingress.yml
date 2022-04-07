@@ -20,6 +20,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: appinno
+            name: board-api-clusterip
             port:
               number: 80

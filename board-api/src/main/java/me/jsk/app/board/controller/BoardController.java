@@ -269,10 +269,10 @@ public class BoardController {
    * @return
    * @throws Exception
    */
-  @ResponseBody
-  @GetMapping(value = "/alive")
-  public String alieveCheck()  throws Exception{
-    return "Alive";
-  }
+//   @ResponseBody
+//   @GetMapping(value = "/alive")
+//   public String alieveCheck()  throws Exception{
+//     return "Alive";
+//   }
   
-}
+// }

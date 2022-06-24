@@ -1,0 +1,99 @@
+az ad sp create-for-rbac --name sp-test-temp \
+--role reader \
+--scopes "/subscriptions/6dbab462-18b2-4c72-90f9-9ce1f7792064/resourceGroups/rg-appinno-aks-dev"
+
+MSYS_NO_PATHCONV=1
+
+$ az ad sp list --display-name sp-test-temp
+[
+  {
+    "accountEnabled": "True",
+    "addIns": [],
+    "alternativeNames": [],
+    "appDisplayName": "sp-test-temp",
+    "appId": "f602b9c3-e3cf-46b6-bd67-ef211872fa11",
+    "appOwnerTenantId": "a74b5451-a280-4768-a5cd-cb47af153c71",
+    "appRoleAssignmentRequired": false,
+    "appRoles": [],
+    "applicationTemplateId": null,
+    "deletionTimestamp": null,
+    "displayName": "sp-test-temp",
+    "errorUrl": null,
+    "homepage": null,
+    "informationalUrls": {
+      "marketing": null,
+      "privacy": null,
+      "support": null,
+      "termsOfService": null
+    },
+    "keyCredentials": [],
+    "logoutUrl": null,
+    "notificationEmailAddresses": [],
+    "oauth2Permissions": [
+      {
+        "adminConsentDescription": "Allow the application to access sp-test-temp on behalf of the signed-in user.",
+        "adminConsentDisplayName": "Access sp-test-temp",
+        "id": "ef279d3e-06dd-4cc7-8df2-0f6438005856",
+        "isEnabled": true,
+        "type": "User",
+        "userConsentDescription": "Allow the application to access sp-test-temp on your behalf.",
+        "userConsentDisplayName": "Access sp-test-temp",
+        "value": "user_impersonation"
+      }
+    ],
+    "objectId": "9f22a7b7-73c6-4512-9ca9-d0bef0c01d11",
+    "objectType": "ServicePrincipal",
+    "odata.type": "Microsoft.DirectoryServices.ServicePrincipal",
+    "passwordCredentials": [],
+    "preferredSingleSignOnMode": null,
+    "preferredTokenSigningKeyEndDateTime": null,
+    "preferredTokenSigningKeyThumbprint": null,
+    "publisherName": "Cloocus-consultant",
+    "replyUrls": [],
+    "samlMetadataUrl": null,
+    "samlSingleSignOnSettings": null,
+    "servicePrincipalNames": [
+      "f602b9c3-e3cf-46b6-bd67-ef211872fa11"
+    ],
+    "servicePrincipalType": "Application",
+    "signInAudience": "AzureADMyOrg",
+    "tags": [],
+    "tokenEncryptionKeyId": null
+  }
+]
+
+$ MSYS_NO_PATHCONV=1 az role assignment list --scope /subscriptions/6dbab462-18b2-4c72-90f9-9ce1f7792064/resourceGroups/rg-appinno-aks-dev
+[
+  {
+    "canDelegate": null,
+    "condition": null,
+    "conditionVersion": null,
+    "description": null,
+    "id": "/subscriptions/6dbab462-18b2-4c72-90f9-9ce1f7792064/resourceGroups/rg-appinno-aks-dev/providers/Microsoft.Authorization/roleAssignments/1fbd8e6d-2b12-43cd-a2d9-9c0e8a077ba7",
+    "name": "1fbd8e6d-2b12-43cd-a2d9-9c0e8a077ba7",
+    "principalId": "9f22a7b7-73c6-4512-9ca9-d0bef0c01d11",
+    "principalName": "",
+    "principalType": "ServicePrincipal",
+    "resourceGroup": "rg-appinno-aks-dev",
+    "roleDefinitionId": "/subscriptions/6dbab462-18b2-4c72-90f9-9ce1f7792064/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",   
+    "roleDefinitionName": "Reader",
+    "scope": "/subscriptions/6dbab462-18b2-4c72-90f9-9ce1f7792064/resourceGroups/rg-appinno-aks-dev",
+    "type": "Microsoft.Authorization/roleAssignments"
+  },
+  {
+    "canDelegate": null,
+    "condition": null,
+    "conditionVersion": null,
+    "description": null,
+    "id": "/subscriptions/6dbab462-18b2-4c72-90f9-9ce1f7792064/resourceGroups/rg-appinno-aks-dev/providers/Microsoft.Authorization/roleAssignments/18f5fdcf-98dc-41e4-a0c7-b7f922414aeb",
+    "name": "18f5fdcf-98dc-41e4-a0c7-b7f922414aeb",
+    "principalId": "d31deb88-857b-48d6-92ac-786de24dd6b4",
+    "principalName": "a5c5ff70-a586-480d-bbe4-9a01a50e2f25",
+    "principalType": "ServicePrincipal",
+    "resourceGroup": "rg-appinno-aks-dev",
+    "roleDefinitionId": "/subscriptions/6dbab462-18b2-4c72-90f9-9ce1f7792064/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",   
+    "roleDefinitionName": "Reader",
+    "scope": "/subscriptions/6dbab462-18b2-4c72-90f9-9ce1f7792064/resourceGroups/rg-appinno-aks-dev",
+    "type": "Microsoft.Authorization/roleAssignments"
+  }
+]
